@@ -1,0 +1,33 @@
+<button id="btn1" (click)="getAllCompanies()">Refresh <i class="fa fa-refresh"></i></button>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <hr>
+
+ <div>
+
+<table id="table">
+    <caption>Companies Table</caption>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Password</th>
+            <th colspan="2">Operation</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let c of companies">
+            <td (click)="move(c.id)" id="id">{{c.id}}</td>
+            <td>{{c.name}}</td>
+            <td>{{c.email}}</td>
+            <td>{{c.password}}</td>
+            <td><button class="btn3" (click)="deleteCompany(c.id)">delete <i class="fa fa-trash"></i></button></td>
+            <td><button class="btn3" id = "edit-btn{{c.id}}" (click)="editComp(c.id,c.name)">edit <i class="fa fa-edit"></i></button>
+            </td>
+
+        </tr>
+    </tbody>
+    <tr></tr>
+</table>
+<h3 *ngIf="companies == null "> there is no companies</h3>
+</div>
